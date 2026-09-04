@@ -1,0 +1,13 @@
+{
+   "configurations": [
+       {
+           "name": "Win32",
+           "includePath": [
+               "${workspaceFolder}/**"
+                       ],
+           "compilerPath": "C:/Users/bootr/Desktop/ECE/ING1/S2/Informatique/MinGW/MinGW/bin/x86_64-w64-mingw32-gcc-8.1.0.exe",
+           "intelliSenseMode": "windows-gcc-x64"
+       }
+   ],
+   "version": 4
+}

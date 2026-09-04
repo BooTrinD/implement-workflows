@@ -10,7 +10,7 @@ double cpu_monitor_get_usage_percent(void)
         return -1.0;
     }
 
-    long num_cores = sysconf(_SC_NPROCESSORS_ONLN);
+    long num_cores = sysconf(2);
     if (num_cores < 1) {
         num_cores = 1;
     }
