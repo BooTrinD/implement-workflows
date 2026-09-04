@@ -22,8 +22,3 @@ jobs:
             - run: cmake -S . -B build
             - run: cmake --build build
             - run: ctest --test-dir build --output-on-failure
-    deploy: 
-        needs: test
-        runs-on: ubuntu-latest
-        steps:
-            - run: ./deploy.sh
