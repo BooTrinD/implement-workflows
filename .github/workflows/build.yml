@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
     build: 
-        runs-on: windows-latest
+        runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
             - run: cmake -S . -B build
@@ -12,17 +12,18 @@ jobs:
             - uses: actions/upload-artifact@v4 
               with: 
                 name: binaries 
-                path: build/Release/
+                path: build/cpu_monitor_app
     test:
         needs: build
-        runs-on: windows-latest
+        runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
             - uses: actions/download-artifact@v4
             - run: cmake -S . -B build
             - run: cmake --build build
+            - run: ctest --test-dir build --output-on-failure
     deploy: 
         needs: test
-        runs-on: windows-latest
+        runs-on: ubuntu-latest
         steps:
             - run: ./deploy.sh
